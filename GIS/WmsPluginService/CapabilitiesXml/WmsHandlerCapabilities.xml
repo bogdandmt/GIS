@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE WMT_MS_Capabilities SYSTEM "http://schemas.opengeospatial.net//wms/1.1.1/capabilities_1_1_1.dtd"[
+    <!ELEMENT VendorSpecificCapabilities EMPTY>
+]>
+<!--   end   of   DOCTYPE   declaration   -->
+<wmt_ms_capabilities version="1.1.1">
+    <!-- Service Metadata -->
+    <Service>
+        <!-- The WMT-defined name for this type of service -->
+        <Name>OGC:WMS</Name>
+        <!-- Human-readable title for pick lists -->
+        <Title>ThinkGeo WMS Plug-in Service</Title>
+        <!-- Narrative description providing additional information -->
+        <Abstract>
+        </Abstract>
+        <KeywordList>
+            <Keyword>ThinkGeo</Keyword>
+            <Keyword>WMS Plug-in Service</Keyword>
+        </KeywordList>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.thinkgeo.com" />
+        <!-- Contact information -->
+        <ContactInformation>
+            <ContactPersonPrimary>
+                <ContactPerson>
+                </ContactPerson>
+                <ContactOrganization>
+                </ContactOrganization>
+            </ContactPersonPrimary>
+            <ContactAddress>
+                <AddressType>
+                </AddressType>
+                <Address>ThinkGeo 1617 St. Andrews Drive Lawrence, KS 66047</Address>
+                <City>KS</City>
+                <StateOrProvince>State</StateOrProvince>
+                <PostCode>66047</PostCode>
+                <Country>United States</Country>
+            </ContactAddress>
+            <ContactVoiceTelephone>
+                1-866-847-7510 (Toll-Free)
+                1-785-727-4133 (International)
+            </ContactVoiceTelephone>
+            <ContactFacsimileTelephone>
+                1-877-250-7122 (Toll-Free)
+                1-973-273-2154 (International)
+            </ContactFacsimileTelephone>
+            <ContactElectronicMailAddress>sales@thinkgeo.com</ContactElectronicMailAddress>
+        </ContactInformation>
+        <Fees>
+        </Fees>
+        <AccessConstraints>
+        </AccessConstraints>
+    </Service>
+    <Capability>
+        <Request>
+            <GetCapabilities>
+                <Format>application/vnd.ogc.wms_xml</Format>
+                <DCPType>
+                    <HTTP>
+                        <Get>
+                            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#REQUESTURL#" />
+                        </Get>
+                    </HTTP>
+                </DCPType>
+            </GetCapabilities>
+            <GetMap>
+                <Format>image/png</Format>
+                <Format>image/jpeg</Format>
+                <Format>image/gif</Format>
+                <DCPType>
+                    <HTTP>
+                        <Get>
+                            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#REQUESTURL#" />
+                        </Get>
+                    </HTTP>
+                </DCPType>
+            </GetMap>
+            <GetFeatureInfo>
+                <Format>text/html</Format>
+                <Format>text/json</Format>
+                <Format>text/xml</Format>
+                <DCPType>
+                    <HTTP>
+                        <Get>
+                            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#REQUESTURL#" />
+                        </Get>
+                    </HTTP>
+                </DCPType>
+            </GetFeatureInfo>
+        </Request>
+        <Exception>
+            <Format>application/vnd.ogc.se_xml</Format>
+        </Exception>
+        <Layer>
+        </Layer>
+    </Capability>
+</wmt_ms_capabilities>
