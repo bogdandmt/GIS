@@ -20,16 +20,47 @@ namespace WebClient
                 MainMap.MapUnit = GeographyUnit.DecimalDegree;
 
                 WmsOverlay wmsOverlay = new WmsOverlay("WMS Overlay");
-                //wmsOverlay.Parameters.Add("LAYERS", "Map Suite World Map Kit");
+                ///wmsOverlay.Parameters.Add("LAYERS", "Map Suite World Map Kit");
                 wmsOverlay.Parameters.Add("LAYERS", "Display A Simple Map");
-                wmsOverlay.Parameters.Add("STYLES", "DEFAULT");
+                //wmsOverlay.Parameters.Add("STYLES", "DEFAULT");
+
+                /* MainMap.CurrentExtent = new RectangleShape(-125, 72, 50, -46);*/
+                // WorldMapKitWmsWebOverlay worldMapKitOverlay = new WorldMapKitWmsWebOverlay();
+                //MainMap.CustomOverlays.Add(worldMapKitOverlay);
+
 
                 //Here you add your WMS Server uri
                 wmsOverlay.ServerUris.Add(new Uri("http://localhost:62626/WmsHandler.axd"));
+
                 MainMap.CustomOverlays.Add(wmsOverlay);
             }
         }
     }
+
+    //public partial class Index : System.Web.UI.Page
+    //{
+    //    protected void Page_Load(object sender, EventArgs e)
+    //    {
+    //        if (!Page.IsPostBack)
+    //        {
+    //            MainMap.MapBackground.BackgroundBrush = new GeoSolidBrush(GeoColor.GeographicColors.Dirt);
+    //            MainMap.CurrentExtent = new RectangleShape(-95.2599710226211, 38.9665298461753, -95.2441567182693, 38.9552645683128);
+    //            MainMap.MapUnit = GeographyUnit.DecimalDegree;
+
+    //            WorldMapKitWmsWebOverlay worldMapKitOverlay = new WorldMapKitWmsWebOverlay();
+    //            MainMap.CustomOverlays.Add(worldMapKitOverlay);
+
+    //            WmsOverlay wmsOverlay = new WmsOverlay("WMS Overlay");
+    //            wmsOverlay.TileType = TileType.SingleTile;
+    //            wmsOverlay.IsBaseOverlay = false;
+    //            wmsOverlay.Parameters.Add("LAYERS", "Simulate Vehicle Tracking");
+                
+    //            //Here you add your WMS Server uri
+    //            wmsOverlay.ServerUris.Add(new Uri("http://localhost:62626/WmsHandler.axd"));
+    //            MainMap.CustomOverlays.Add(wmsOverlay);
+    //        }
+    //    }
+    //}
 
     //public partial class Index : System.Web.UI.Page
     //{

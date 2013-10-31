@@ -31,13 +31,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GeoAPI">
-      <HintPath>D:\ProgramFiles\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\GeoAPI.dll</HintPath>
+      <HintPath>bin\GeoAPI.dll</HintPath>
     </Reference>
     <Reference Include="MapSuiteCore">
-      <HintPath>D:\ProgramFiles\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\MapSuiteCore.dll</HintPath>
+      <HintPath>bin\MapSuiteCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="NetTopologySuite">
+      <HintPath>bin\NetTopologySuite.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,12 +54,19 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
     <Reference Include="WmsServerEdition">
-      <HintPath>D:\ProgramFiles\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\WmsServerEdition.dll</HintPath>
+      <HintPath>bin\WmsServerEdition.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeStyleByUserWmsLayerPlugin.cs" />
     <Compile Include="CountriesPlugin.cs" />
+    <Compile Include="DynamicallyDrawOnMapsWmsLayerPlugin.cs" />
+    <Compile Include="GetDataFromCustomSourcesWmsLayerPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecureServerRequestsWmsLayerPlugin .cs" />
+    <Compile Include="ShowUserSpecificMapsWmsLayerPlugin.cs" />
+    <Compile Include="SimulateVehicleTrackingWmsLayerPlugin.cs" />
+    <Compile Include="ThrottleUserRequestsWmsLayerPlugin.cs" />
     <Compile Include="WorldMapKitPlugin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

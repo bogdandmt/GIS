@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +19,7 @@ namespace WmsPlugin
 
         protected override MapConfiguration GetMapConfigurationCore(string style, string crs)
         {
-            string worldLayerFilePath = @"D:\ProgramFiles\Map Suite WMS Server Evaluation Edition 7.0\HowDoISamples\CSharp Samples\SampleData\Countries02.shp";
+            string worldLayerFilePath = Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName + Path.DirectorySeparatorChar + "SampleData" + Path.DirectorySeparatorChar + "Countries02.shp";
 
             BackgroundLayer backgroundLayer = new BackgroundLayer(new GeoSolidBrush(GeoColor.GeographicColors.ShallowOcean));
 
