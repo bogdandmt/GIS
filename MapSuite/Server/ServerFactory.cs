@@ -12,21 +12,26 @@ namespace Server
     {
         private static String dataPath = Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName + @"\Server\Data\";
         
-        public static ShapeFileFeatureLayer CreateWorldLayer()
+        public static ShapeFileFeatureLayer CreateCitiesLayer()
         {
-            ShapeFileFeatureLayer worldLayer = new ShapeFileFeatureLayer(dataPath + @"World\cntry02.shp");
+            String shpFile = @"Ukraine\places.shp";
+            ShapeFileFeatureSource.BuildIndexFile(dataPath + shpFile, BuildIndexMode.DoNotRebuild);
+            ShapeFileFeatureLayer worldLayer = new ShapeFileFeatureLayer(dataPath + shpFile);
             return worldLayer;
         }
 
-        public static ShapeFileFeatureLayer CreateCapitalPointLayer()
+        public static ShapeFileFeatureLayer CreateRoadsLayer()
         {
-            ShapeFileFeatureLayer capitalPointLayer = new ShapeFileFeatureLayer(dataPath + @"World\capital.shp");
+            ShapeFileFeatureSource.BuildIndexFile(dataPath + @"Ukraine\roads.shp", BuildIndexMode.DoNotRebuild);
+            ShapeFileFeatureLayer capitalPointLayer = new ShapeFileFeatureLayer(dataPath + @"Ukraine\roads.shp");
             return capitalPointLayer;
         }
 
-        public static ShapeFileFeatureLayer CreateCapitalNameLayer()
+        public static ShapeFileFeatureLayer CreatePlacesLayer()
         {
-            ShapeFileFeatureLayer capitalNameLayer = new ShapeFileFeatureLayer(dataPath + @"World\capital.shp");
+            String shpFile = @"Ukraine\pois.shp";
+            ShapeFileFeatureSource.BuildIndexFile(dataPath + shpFile, BuildIndexMode.DoNotRebuild);
+            ShapeFileFeatureLayer capitalNameLayer = new ShapeFileFeatureLayer(dataPath + shpFile);
             return capitalNameLayer;
         }
     }

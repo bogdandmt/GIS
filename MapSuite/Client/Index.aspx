@@ -15,8 +15,9 @@
     </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
-        <cc1:Map ID="MainMap" runat="server" height="480px" width="640px">
+        <cc1:Map ID="MainMap" runat="server" height="700px" width="1200px" CurrentScale="NaN">
         </cc1:Map>
+        <asp:TextBox ID="TextBox" runat="server" Width="1000px"></asp:TextBox>
     </form>
 </body>
 </html>

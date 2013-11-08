@@ -1,8 +1,10 @@
 ﻿using Server;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,29 +20,53 @@ namespace Client
             String dataPath = Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName + @"\Server\Data\";
             MainMap.MapUnit = GeographyUnit.DecimalDegree;
 
-            ShapeFileFeatureLayer worldLayer = ServerFactory.CreateWorldLayer();
-            worldLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyles.Country1;
-            worldLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+            ShapeFileFeatureLayer citiesLayer = ServerFactory.CreateCitiesLayer();
+            citiesLayer.ZoomLevelSet.ZoomLevel01.DefaultAreaStyle = AreaStyles.Urban2;
+            citiesLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
 
-            ShapeFileFeatureLayer capitalPointLayer = ServerFactory.CreateCapitalPointLayer();
-            capitalPointLayer.ZoomLevelSet.ZoomLevel01.DefaultPointStyle = PointStyles.Capital3;
-            capitalPointLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+            ShapeFileFeatureLayer cityNameLayer = ServerFactory.CreateCitiesLayer();
+            //cityNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = TextStyles.City3("NAME");
+            cityNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = new TextStyle("NAME", new GeoFont(), new GeoSolidBrush(GeoColor.StandardColors.DarkRed));
+            //cityNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = TextStyles.Capital3("NAME");
+            cityNameLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+            cityNameLayer.DrawingMarginPercentage = 50;
+            cityNameLayer.Encoding = Encoding.UTF8;
 
-            ShapeFileFeatureLayer capitalNameLayer = ServerFactory.CreateCapitalNameLayer();
-            capitalNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = TextStyles.Capital3("CITY_NAME");
-            capitalNameLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
-            capitalNameLayer.DrawingMarginPercentage = 50;
+            ShapeFileFeatureLayer roadsLayer = ServerFactory.CreateRoadsLayer();
+            roadsLayer.ZoomLevelSet.ZoomLevel01.DefaultLineStyle = LineStyles.LocalRoad2;
+            roadsLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+
+            ShapeFileFeatureLayer roadsNameLayer = ServerFactory.CreateRoadsLayer();
+            roadsNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = TextStyles.LocalRoad1("NAME");
+            roadsNameLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+            roadsNameLayer.DrawingMarginPercentage = 50;
+            roadsNameLayer.Encoding = Encoding.UTF8;
+
+            ShapeFileFeatureLayer placesLayer = ServerFactory.CreatePlacesLayer();
+            placesLayer.ZoomLevelSet.ZoomLevel01.DefaultPointStyle = PointStyles.City6;
+            placesLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+            //capitalNameLayer.DrawingMarginPercentage = 50;
+
+            ShapeFileFeatureLayer palceNameLayer = ServerFactory.CreatePlacesLayer();
+            //palceNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = TextStyles.Utility2("NAME");
+            palceNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = new TextStyle("NAME", new GeoFont(), new GeoSolidBrush(GeoColor.StandardColors.DarkBlue));
+            palceNameLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+            palceNameLayer.DrawingMarginPercentage = 50;
+            palceNameLayer.Encoding = Encoding.UTF8;
 
 
-            MainMap.StaticOverlay.Layers.Add(worldLayer);
-            MainMap.StaticOverlay.Layers.Add(capitalPointLayer);
-            MainMap.StaticOverlay.Layers.Add(capitalNameLayer);
+            MainMap.StaticOverlay.Layers.Add(roadsLayer);
+            MainMap.StaticOverlay.Layers.Add(roadsNameLayer);
+            //MainMap.StaticOverlay.Layers.Add(citiesLayer);
+            MainMap.StaticOverlay.Layers.Add(cityNameLayer);
+            MainMap.StaticOverlay.Layers.Add(placesLayer);
+            MainMap.StaticOverlay.Layers.Add(palceNameLayer);
 
-            MainMap.CurrentExtent = new RectangleShape(5, 78, 30, 26);
+            MainMap.CurrentExtent = new RectangleShape(-1.93, 53.68, 50, 46);
+            MainMap.CurrentExtent.ScaleTo(0.001);
 
-            MainMap.MapBackground.BackgroundBrush = new GeoSolidBrush(GeoColor.GeographicColors.ShallowOcean);
 
-            ServerFactory c = new ServerFactory(); ;
+            ServerFactory c = new ServerFactory();
         }
     }
 }
