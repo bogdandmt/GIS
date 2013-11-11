@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ThinkGeo.MapSuite.Core;
 using ThinkGeo.MapSuite.WebEdition;
+using WmsPlugin;
 
 namespace WebClient
 {
@@ -15,24 +17,65 @@ namespace WebClient
         {
             if (!Page.IsPostBack)
             {
-                MainMap.MapBackground.BackgroundBrush = new GeoSolidBrush(GeoColor.FromHtml("#E5E3DF"));
-                MainMap.CurrentExtent = new RectangleShape(-131.22, 55.05, -54.03, 16.91);
+                //MainMap.MapBackground.BackgroundBrush = new GeoSolidBrush(GeoColor.FromHtml("#E5E3DF"));
+                //MainMap.CurrentExtent = new RectangleShape(-131.22, 55.05, -54.03, 16.91);
+                //MainMap.MapUnit = GeographyUnit.DecimalDegree;
+
+                //WmsOverlay wmsOverlay = new WmsOverlay("WMS Overlay");
+                /////wmsOverlay.Parameters.Add("LAYERS", "Map Suite World Map Kit");
+                //wmsOverlay.Parameters.Add("LAYERS", "Display A Simple Map");
+                ////wmsOverlay.Parameters.Add("STYLES", "DEFAULT");
+
+                ///* MainMap.CurrentExtent = new RectangleShape(-125, 72, 50, -46);*/
+                //// WorldMapKitWmsWebOverlay worldMapKitOverlay = new WorldMapKitWmsWebOverlay();
+                ////MainMap.CustomOverlays.Add(worldMapKitOverlay);
+
+
+                ////Here you add your WMS Server uri
+                //wmsOverlay.ServerUris.Add(new Uri("http://localhost:62626/WmsHandler.axd"));
+
+                //String shpFile = @"Ukraine\places.shp";
+                //ShapeFileFeatureLayer worldLayer = new ShapeFileFeatureLayer(Util.dataPath + shpFile);
+
+                //MainMap.CustomOverlays.Add(wmsOverlay);
+
+
                 MainMap.MapUnit = GeographyUnit.DecimalDegree;
 
-                WmsOverlay wmsOverlay = new WmsOverlay("WMS Overlay");
-                ///wmsOverlay.Parameters.Add("LAYERS", "Map Suite World Map Kit");
-                wmsOverlay.Parameters.Add("LAYERS", "Display A Simple Map");
-                //wmsOverlay.Parameters.Add("STYLES", "DEFAULT");
+                ShapeFileFeatureLayer cityNameLayer = new ShapeFileFeatureLayer(Util.citiesShpFile);
+                cityNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = new TextStyle("NAME", new GeoFont(), new GeoSolidBrush(GeoColor.StandardColors.DarkRed));
+                cityNameLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+                cityNameLayer.DrawingMarginPercentage = 50;
+                cityNameLayer.Encoding = Encoding.UTF8;
 
-                /* MainMap.CurrentExtent = new RectangleShape(-125, 72, 50, -46);*/
-                // WorldMapKitWmsWebOverlay worldMapKitOverlay = new WorldMapKitWmsWebOverlay();
-                //MainMap.CustomOverlays.Add(worldMapKitOverlay);
+                ShapeFileFeatureLayer roadsLayer = new ShapeFileFeatureLayer(Util.roadsShpFile);
+                roadsLayer.ZoomLevelSet.ZoomLevel01.DefaultLineStyle = LineStyles.LocalRoad2;
+                roadsLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
 
+                ShapeFileFeatureLayer roadsNameLayer = new ShapeFileFeatureLayer(Util.roadsShpFile);
+                roadsNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = TextStyles.LocalRoad1("NAME");
+                roadsNameLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+                roadsNameLayer.DrawingMarginPercentage = 50;
+                roadsNameLayer.Encoding = Encoding.UTF8;
 
-                //Here you add your WMS Server uri
-                wmsOverlay.ServerUris.Add(new Uri("http://localhost:62626/WmsHandler.axd"));
+                ShapeFileFeatureLayer placesLayer = new ShapeFileFeatureLayer(Util.poisShpFile);
+                placesLayer.ZoomLevelSet.ZoomLevel01.DefaultPointStyle = PointStyles.City6;
+                placesLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
 
-                MainMap.CustomOverlays.Add(wmsOverlay);
+                ShapeFileFeatureLayer palceNameLayer = new ShapeFileFeatureLayer(Util.poisShpFile);
+                palceNameLayer.ZoomLevelSet.ZoomLevel01.DefaultTextStyle = new TextStyle("NAME", new GeoFont(), new GeoSolidBrush(GeoColor.StandardColors.DarkBlue));
+                palceNameLayer.ZoomLevelSet.ZoomLevel01.ApplyUntilZoomLevel = ApplyUntilZoomLevel.Level20;
+                palceNameLayer.DrawingMarginPercentage = 50;
+                palceNameLayer.Encoding = Encoding.UTF8;
+
+                MainMap.StaticOverlay.Layers.Add(roadsLayer);
+                MainMap.StaticOverlay.Layers.Add(roadsNameLayer);
+                MainMap.StaticOverlay.Layers.Add(cityNameLayer);
+                MainMap.StaticOverlay.Layers.Add(placesLayer);
+                MainMap.StaticOverlay.Layers.Add(palceNameLayer);
+
+                MainMap.CurrentExtent = new RectangleShape(-1.93, 53.68, 50, 46);
+                MainMap.CurrentExtent.ScaleTo(0.001);
             }
         }
 
