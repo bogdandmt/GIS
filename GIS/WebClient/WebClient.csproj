@@ -40,20 +40,16 @@
   <ItemGroup>
     <Reference Include="GeoAPI, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\GeoAPI.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\GeoAPI.dll</HintPath>
     </Reference>
     <Reference Include="MapSuiteCore, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\MapSuiteCore.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\MapSuiteCore.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Microsoft.SqlServer.Types.dll</HintPath>
-    </Reference>
-    <Reference Include="NetTopologySuite, Version=1.7.3.31740, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\NetTopologySuite.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -73,7 +69,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="WebEdition, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\WebEdition.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\WebEdition.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -81,6 +77,7 @@
     <Content Include="Index.aspx" />
     <Content Include="SelectFeature.aspx" />
     <Content Include="MyStyles.css" />
+    <Content Include="SQLQuery.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +96,13 @@
     <Compile Include="SelectFeature.aspx.designer.cs">
       <DependentUpon>SelectFeature.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SQLQuery.aspx.cs">
+      <DependentUpon>SQLQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SQLQuery.aspx.designer.cs">
+      <DependentUpon>SQLQuery.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
@@ -107,6 +111,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WmsPlugin\WmsPlugin.csproj">
+      <Project>{fab977ba-4665-486b-815c-00dae4d9fa16}</Project>
+      <Name>WmsPlugin</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
