@@ -40,11 +40,11 @@
   <ItemGroup>
     <Reference Include="GeoAPI, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\GeoAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\GeoAPI.dll</HintPath>
     </Reference>
     <Reference Include="MapSuiteCore, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\ProgramFiles\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\MapSuiteCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\MapSuiteCore.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -53,7 +53,7 @@
     </Reference>
     <Reference Include="NetTopologySuite, Version=1.7.3.31740, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\NetTopologySuite.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\NetTopologySuite.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -73,13 +73,14 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="WebEdition, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\ProgramFiles\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\WebEdition.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\WebEdition.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.aspx" />
     <Content Include="SelectFeature.aspx" />
+    <Content Include="MyStyles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

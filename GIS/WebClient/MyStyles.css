@@ -1,0 +1,16 @@
+﻿body {
+  width: 100%
+}
+.centered {
+  position: fixed;
+  left: 50%;
+}
+.fromLeft {
+  float: left;
+}
+.marginRight {
+    margin-right: 20px;
+}
+.marginTop {
+    margin-top: 20px;
+}

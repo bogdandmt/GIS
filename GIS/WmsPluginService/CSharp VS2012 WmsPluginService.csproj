@@ -47,19 +47,19 @@
   <ItemGroup>
     <Reference Include="GeoAPI, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\GeoAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\GeoAPI.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\log4net.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\log4net.dll</HintPath>
     </Reference>
     <Reference Include="MapSuiteCore, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\MapSuiteCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite Web Evaluation Edition 7.0\Developer Reference\Web Edition\MapSuiteCore.dll</HintPath>
     </Reference>
     <Reference Include="NetTopologySuite, Version=1.7.3.31740, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\NetTopologySuite.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\NetTopologySuite.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition, Version=2010.2.11.0, Culture=neutral, PublicKeyToken=0828af5241fb4207, processorArchitecture=MSIL">
@@ -79,7 +79,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WmsServerEdition, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\WmsServerEdition.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\ThinkGeo\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\WmsServerEdition.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

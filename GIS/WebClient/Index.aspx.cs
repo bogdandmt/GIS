@@ -35,6 +35,11 @@ namespace WebClient
                 MainMap.CustomOverlays.Add(wmsOverlay);
             }
         }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+
+        }
     }
 
     //public partial class Index : System.Web.UI.Page
