@@ -31,17 +31,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GeoAPI">
-      <HintPath>bin\GeoAPI.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\GeoAPI.dll</HintPath>
     </Reference>
     <Reference Include="MapSuiteCore">
-      <HintPath>bin\MapSuiteCore.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\MapSuiteCore.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Microsoft.SqlServer.Types.dll</HintPath>
-    </Reference>
-    <Reference Include="NetTopologySuite">
-      <HintPath>bin\NetTopologySuite.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,7 +51,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
     <Reference Include="WmsServerEdition">
-      <HintPath>bin\WmsServerEdition.dll</HintPath>
+      <HintPath>D:\ProgramFiles\Map Suite WMS Server Evaluation Edition 7.0\Developer Reference\WMS Server Edition\WmsServerEdition.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +64,7 @@
     <Compile Include="ShowUserSpecificMapsWmsLayerPlugin.cs" />
     <Compile Include="SimulateVehicleTrackingWmsLayerPlugin.cs" />
     <Compile Include="ThrottleUserRequestsWmsLayerPlugin.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="WorldMapKitPlugin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
